@@ -1,8 +1,12 @@
 package edu.kis.vh.stacks;
 
-public class StackFIFO extends stack {
+/**
+ * @author Mateusz Śmiałkowski
+ * Implementacja stosu FIFO (First In First Out)
+ */
+public class StackFIFO extends Stack {
 
-	public stack temp = new stack();
+	private final Stack temp = new Stack();
 	
 	@Override
 	public int pop() {
@@ -10,12 +14,12 @@ public class StackFIFO extends stack {
 		
 		temp.push(super.pop());
 		
-		int ret = temp.pop();
+		int result = temp.pop();
 		
 		while (!temp.isEmpty())
 	
 		push(temp.pop());
 		
-		return ret;
+		return result;
 	}
 }

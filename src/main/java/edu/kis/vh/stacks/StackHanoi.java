@@ -1,17 +1,23 @@
 package edu.kis.vh.stacks;
 
-public class StackHanoi extends stack {
+/**
+ * @author Mateusz Śmiałkowski
+ * Implementacja stosu opartego na wieży Hanoi
+ */
+public class StackHanoi extends Stack {
 
-int totalRejected = 0;
+	private static final int INIT_TOTAL_REJECTED = 0;
+	private int totalRejected = INIT_TOTAL_REJECTED;
 
 	public int reportRejected() {
-	return totalRejected;
+		return totalRejected;
 	}
 
-	public void push(int in) {
-	if (!isEmpty() && in > top())
+	@Override
+	public void push(int value) {
+	if (!isEmpty() && value > top())
 		totalRejected++;
 		else
-			super.push(in);
+			super.push(value);
 	}
 }

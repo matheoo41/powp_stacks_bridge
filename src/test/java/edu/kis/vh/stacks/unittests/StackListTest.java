@@ -3,78 +3,77 @@ package edu.kis.vh.stacks.unittests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.kis.vh.stacks.Stack;
+import edu.kis.vh.stacks.list.StackList;
 
-public class StackTest {
-	
+
+public class StackListTest {
 	@Test
 	public void testPush() {
-		Stack stackObj = new Stack();
+		StackList stackListObj = new StackList();
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackListObj.pushElement(testValue);
 		
-		int result = stackObj.top();
+		int result = stackListObj.peek();
 		Assert.assertEquals(testValue, result);
 	}
 
 	@Test
 	public void testIsEmpty() {
-		Stack stackObj = new Stack();
-		boolean result = stackObj.isEmpty();		
+		StackList stackListObj = new StackList();
+		boolean result = stackListObj.empty();		
 		Assert.assertEquals(true, result);
 		
-		stackObj.push(888);
+		stackListObj.pushElement(888);
 		
-		result = stackObj.isEmpty();
+		result = stackListObj.empty();
 		Assert.assertEquals(false, result);
 	}
 
 	@Test
 	public void testIsFull() {
-		Stack stackObj = new Stack();
+		StackList stackListObj = new StackList();
 		final int STACK_CAPACITY = 12;
 		for (int i = 0; i < STACK_CAPACITY; i++) {
-			boolean result = stackObj.isFull();		
+			boolean result = stackListObj.full();		
 			Assert.assertEquals(false, result);
-			stackObj.push(888);
+			stackListObj.pushElement(888);
 		}
 		
-		boolean result = stackObj.isFull();
-		Assert.assertEquals(true, result);
+		boolean result = stackListObj.full();
+		Assert.assertEquals(false, result);
 	}
 
 	@Test
-	public void testTop() {
-		Stack stackObj = new Stack();
+	public void testPeek() {
+		StackList stackListObj = new StackList();
 		final int EMPTY_STACK_VALUE = -1;
 		
-		int result = stackObj.top();
+		int result = stackListObj.peek();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 		
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackListObj.pushElement(testValue);
 		
-		result = stackObj.top();
+		result = stackListObj.peek();
 		Assert.assertEquals(testValue, result);
-		result = stackObj.top();
+		result = stackListObj.peek();
 		Assert.assertEquals(testValue, result);
 	}
 
 	@Test
 	public void testPop() {
-		Stack stackObj = new Stack();
+		StackList stackListObj = new StackList();
 		final int EMPTY_STACK_VALUE = -1;
 		
-		int result = stackObj.pop();
+		int result = stackListObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 		
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackListObj.pushElement(testValue);
 		
-		result = stackObj.pop();
+		result = stackListObj.pop();
 		Assert.assertEquals(testValue, result);
-		result = stackObj.pop();
+		result = stackListObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 	}
-
 }

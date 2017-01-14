@@ -1,17 +1,21 @@
 package edu.kis.vh.stacks.list;
 
+/**
+ * @author Mateusz Śmiałkowski
+ * Implementacja stosu opartego na liście węzłów
+ */
 public class StackList {
 
-	Node last;
-	int i;
+	private static final int EMPTY_CODE = -1;
+	private Node last;
 
-	public void pushElement(int i) {
+	public void pushElement(int value) {
 		if (last == null)
-			last = new Node(i);
+			last = new Node(value);
 		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+			last.setNext(new Node(value));
+			last.getNext().setPrev(last);
+			last = last.getNext();
 		}
 	}
 
@@ -25,16 +29,53 @@ public class StackList {
 
 	public int peek() {
 		if (empty())
-			return -1;
-		return last.value;
+			return EMPTY_CODE;
+		return last.getValue();
 	}
 
 	public int pop() {
 		if (empty())
-			return -1;
-		int ret = last.value;
-		last = last.prev;
-		return ret;
+			return EMPTY_CODE;
+		int result = last.getValue();
+		last = last.getPrev();
+		return result;
 	}
 
+	private class Node {
+
+		//w pozostałych klasach jest teraz używane za pomocą gettera
+		private final int value;
+		
+		//w pozostałych klasach jest teraz używane za pomocą gettera i settera
+		private Node prev;
+		
+		//w pozostałych klasach jest teraz używane za pomocą gettera i settera
+		private Node next;
+
+		public Node(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public Node getPrev() {
+			return prev;
+		}
+
+		public void setPrev(Node prev) {
+			this.prev = prev;
+		}
+
+		public Node getNext() {
+			return next;
+		}
+
+		public void setNext(Node next) {
+			this.next = next;
+		}	
+	}
 }
+
+
