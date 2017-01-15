@@ -1,45 +1,49 @@
 package edu.kis.vh.stacks;
 
+import edu.kis.vh.stack.implementations.StackArray;
+
+//komentarz do punktu 13: Deklaracje metod znajdują się w interfejsie. Istnieją dwie klasy implementujące ten interfejs StackArray, StackList
+
 /**
  * @author Mateusz Śmiałkowski
  * Podstawowa implementacja stosu
  */
 public class Stack {
 
-	private static final int EMPTY_CODE = -1;
-	private static final int INIT_SIZE = 12;
-	
-	private final int[] ITEMS = new int[INIT_SIZE];
+	private final StackInterface stackImpl;
 
-	private int total = EMPTY_CODE;
+	public Stack() {
+		super();
+		this.stackImpl = new StackArray();
+	}
+	
+	public Stack(StackInterface stackImpl) {
+		super();
+		this.stackImpl = stackImpl;
+	}
 
 	public void push(int value) {
-		if (!isFull())
-			ITEMS[++total] = value;
+		stackImpl.pushElement(value);
 	}
 
 	public boolean isEmpty() {
-		return total == EMPTY_CODE;
+		return stackImpl.empty();
 	}
 
 	public boolean isFull() {
-		return total == INIT_SIZE - 1;
+		return stackImpl.full();
 	}
 
 	public int top() {
-		if (isEmpty())
-			return EMPTY_CODE;
-		return ITEMS[total];
+		return stackImpl.peek();
 	}
 
 	public int getTotal() {
-		return total;
+		return stackImpl.total();
 	}
 
 	public int pop() {
-		if (isEmpty())
-			return EMPTY_CODE;
-		return ITEMS[total--];
+		return stackImpl.pop();
 	}
 
 }

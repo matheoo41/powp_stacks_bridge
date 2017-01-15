@@ -11,7 +11,7 @@ public class StackFIFOTest {
 	@Test
 	public void testPop() {
 		Stack stackObj = new StackFIFO();
-		final int EMPTY_STACK_VALUE = -1;
+		final int EMPTY_STACK_VALUE = 0;
 		
 		int result = stackObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);

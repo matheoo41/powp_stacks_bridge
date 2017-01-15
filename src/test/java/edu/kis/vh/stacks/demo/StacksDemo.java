@@ -2,7 +2,10 @@ package edu.kis.vh.stacks.demo;
 
 import edu.kis.vh.stacks.StackHanoi;
 import edu.kis.vh.stacks.Stack;
+import edu.kis.vh.stacks.factory.ArrayStackFactory;
 import edu.kis.vh.stacks.factory.DefaultStacksFactory;
+import edu.kis.vh.stacks.factory.IStacksFactory;
+import edu.kis.vh.stacks.factory.ListStackFactory;
 
 //alt + <- przejście do poprzedniego pliku z historii, który był otwarty
 //alt + -> przejście do kolejnego pliku z historii, który był otwarty
@@ -10,11 +13,14 @@ import edu.kis.vh.stacks.factory.DefaultStacksFactory;
 class StacksDemo {
 
 	public static void main(String[] args) {
-		DefaultStacksFactory factory = new DefaultStacksFactory();
-		testStacks(factory);
+		IStacksFactory[] factories = { new DefaultStacksFactory(), new ArrayStackFactory(), new ListStackFactory() };
+		for(IStacksFactory factory : factories){
+			testStacks(factory);
+			System.out.println();
+		}
 	}
 
-	private static void testStacks(DefaultStacksFactory factory) {
+	private static void testStacks(IStacksFactory factory) {
 		Stack[] stacks = { factory.getStandardStack(), factory.getFalseStack(), factory.getFIFOStack(),
 				factory.getHanoiStack() };
 

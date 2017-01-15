@@ -3,78 +3,76 @@ package edu.kis.vh.stacks.unittests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.kis.vh.stacks.Stack;
+import edu.kis.vh.stack.implementations.StackArray;
 
-public class StackTest {
-	
+public class StackArrayTest {
 	@Test
 	public void testPush() {
-		Stack stackObj = new Stack();
+		StackArray stackObj = new StackArray();
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackObj.pushElement(testValue);
 		
-		int result = stackObj.top();
+		int result = stackObj.peek();
 		Assert.assertEquals(testValue, result);
 	}
 
 	@Test
 	public void testIsEmpty() {
-		Stack stackObj = new Stack();
-		boolean result = stackObj.isEmpty();		
+		StackArray stackObj = new StackArray();
+		boolean result = stackObj.empty();		
 		Assert.assertEquals(true, result);
 		
-		stackObj.push(888);
+		stackObj.pushElement(888);
 		
-		result = stackObj.isEmpty();
+		result = stackObj.empty();
 		Assert.assertEquals(false, result);
 	}
 
 	@Test
 	public void testIsFull() {
-		Stack stackObj = new Stack();
+		StackArray stackObj = new StackArray();
 		final int STACK_CAPACITY = 12;
 		for (int i = 0; i < STACK_CAPACITY; i++) {
-			boolean result = stackObj.isFull();		
+			boolean result = stackObj.full();		
 			Assert.assertEquals(false, result);
-			stackObj.push(888);
+			stackObj.pushElement(888);
 		}
 		
-		boolean result = stackObj.isFull();
+		boolean result = stackObj.full();
 		Assert.assertEquals(true, result);
 	}
 
 	@Test
 	public void testTop() {
-		Stack stackObj = new Stack();
+		StackArray stackObj = new StackArray();
 		final int EMPTY_STACK_VALUE = 0;
 		
-		int result = stackObj.top();
+		int result = stackObj.peek();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 		
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackObj.pushElement(testValue);
 		
-		result = stackObj.top();
+		result = stackObj.peek();
 		Assert.assertEquals(testValue, result);
-		result = stackObj.top();
+		result = stackObj.peek();
 		Assert.assertEquals(testValue, result);
 	}
 
 	@Test
 	public void testPop() {
-		Stack stackObj = new Stack();
+		StackArray stackObj = new StackArray();
 		final int EMPTY_STACK_VALUE = 0;
 		
 		int result = stackObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 		
 		int testValue = 4;
-		stackObj.push(testValue);
+		stackObj.pushElement(testValue);
 		
 		result = stackObj.pop();
 		Assert.assertEquals(testValue, result);
 		result = stackObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
 	}
-
 }
