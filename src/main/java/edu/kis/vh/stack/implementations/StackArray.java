@@ -5,7 +5,7 @@ import edu.kis.vh.stacks.StackInterface;
 public class StackArray implements StackInterface{
 	
 	private static final int INIT_SIZE = 12;	
-	private final int[] ITEMS = new int[INIT_SIZE];
+	private final int[] items = new int[INIT_SIZE];
 	private int total = EMPTY_CODE;
 
 	@Override
@@ -17,13 +17,13 @@ public class StackArray implements StackInterface{
 	public int pop() {
 		if (empty())
 			return EMPTY_CODE;
-		return ITEMS[--total];
+		return items[--total];
 	}
 
 	@Override
 	public void pushElement(int value) {
 		if (!full())
-			ITEMS[total++] = value;	
+			items[total++] = value;	
 	}
 
 	@Override
@@ -40,6 +40,6 @@ public class StackArray implements StackInterface{
 	public int peek() {
 		if (empty())
 			return EMPTY_CODE;
-		return ITEMS[total-1];
+		return items[total-1];
 	}
 }
