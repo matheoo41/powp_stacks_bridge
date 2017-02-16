@@ -29,7 +29,7 @@ public class StackArray implements StackInterface{
 	@Override
 	public int empty() {
 		if(total==0){return EMPTY_CODE;}
-		else return total;
+		else return NOT_EMPTY_CODE;
 	}
 
 	@Override
