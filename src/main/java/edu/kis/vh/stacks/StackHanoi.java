@@ -1,5 +1,4 @@
 package edu.kis.vh.stacks;
-import edu.kis.vh.stacks.StackInterface;
 
 
 /**
@@ -25,7 +24,7 @@ public class StackHanoi extends Stack {
 
 	@Override
 	public void push(int value) {
-	if ((isEmpty()!=edu.kis.vh.stacks.StackInterface.EMPTY_CODE) && value > top())
+	if (!isEmpty() && value > top())
 		totalRejected++;
 		else
 			super.push(value);

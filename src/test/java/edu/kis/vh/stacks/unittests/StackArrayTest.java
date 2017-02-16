@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import edu.kis.vh.stack.implementations.StackArray;
+import edu.kis.vh.stacks.StackInterface;
 
 public class StackArrayTest {
 	@Test
@@ -19,13 +20,13 @@ public class StackArrayTest {
 	@Test
 	public void testIsEmpty() {
 		StackArray stackObj = new StackArray();
-		int result = stackObj.empty();		
-		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.EMPTY_CODE, result);
+		boolean result = stackObj.empty();		
+		Assert.assertEquals(true, result);
 		
 		stackObj.pushElement(888);
 		
 		result = stackObj.empty();
-		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.NOT_EMPTY_CODE, result);
+		Assert.assertEquals(false, result);
 	}
 
 	@Test
@@ -45,7 +46,7 @@ public class StackArrayTest {
 	@Test
 	public void testTop() {
 		StackArray stackObj = new StackArray();
-		final int EMPTY_STACK_VALUE = 0;
+		final int EMPTY_STACK_VALUE = StackInterface.EMPTY_CODE;
 		
 		int result = stackObj.peek();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
@@ -62,7 +63,7 @@ public class StackArrayTest {
 	@Test
 	public void testPop() {
 		StackArray stackObj = new StackArray();
-		final int EMPTY_STACK_VALUE = 0;
+		final int EMPTY_STACK_VALUE = StackInterface.EMPTY_CODE;
 		
 		int result = stackObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);

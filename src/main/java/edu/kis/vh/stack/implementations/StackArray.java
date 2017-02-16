@@ -15,7 +15,7 @@ public class StackArray implements StackInterface{
 
 	@Override
 	public int pop() {
-		if (empty()==EMPTY_CODE)
+		if (empty())
 			return EMPTY_CODE;
 		return items[--total];
 	}
@@ -27,9 +27,8 @@ public class StackArray implements StackInterface{
 	}
 
 	@Override
-	public int empty() {
-		if(total==0){return EMPTY_CODE;}
-		else return NOT_EMPTY_CODE;
+	public boolean empty() {
+		return total == 0;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class StackArray implements StackInterface{
 
 	@Override
 	public int peek() {
-		if (empty()==EMPTY_CODE)
+		if (empty())
 			return EMPTY_CODE;
 		return items[total-1];
 	}

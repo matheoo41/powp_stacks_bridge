@@ -21,13 +21,13 @@ public class StackListTest {
 	@Test
 	public void testIsEmpty() {
 		StackInterface stackListObj = new StackList();
-		int result = stackListObj.empty();		
-		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.EMPTY_CODE, result);
+		boolean result = stackListObj.empty();		
+		Assert.assertEquals(true, result);
 		
 		stackListObj.pushElement(888);
 		
 		result = stackListObj.empty();
-		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.NOT_EMPTY_CODE, result);
+		Assert.assertEquals(false, result);
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class StackListTest {
 	@Test
 	public void testPeek() {
 		StackInterface stackListObj = new StackList();
-		final int EMPTY_STACK_VALUE = 0;
+		final int EMPTY_STACK_VALUE = StackInterface.EMPTY_CODE;
 		
 		int result = stackListObj.peek();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
@@ -64,7 +64,7 @@ public class StackListTest {
 	@Test
 	public void testPop() {
 		StackInterface stackListObj = new StackList();
-		final int EMPTY_STACK_VALUE = 0;
+		final int EMPTY_STACK_VALUE = StackInterface.EMPTY_CODE;
 		
 		int result = stackListObj.pop();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);

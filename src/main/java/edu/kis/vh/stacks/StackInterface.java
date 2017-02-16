@@ -4,12 +4,11 @@ package edu.kis.vh.stacks;
 
 public interface StackInterface {
 
-	static final int EMPTY_CODE = 0;
-	static final int NOT_EMPTY_CODE = 1;
+	static final int EMPTY_CODE = -1;
 	
 	void pushElement(int value);
 
-	int empty();
+	boolean empty();
 
 	boolean full();
 
