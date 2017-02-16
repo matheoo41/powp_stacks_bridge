@@ -1,6 +1,8 @@
 package edu.kis.vh.stacks;
 
 import edu.kis.vh.stack.implementations.StackList;
+import edu.kis.vh.stacks.StackInterface;
+
 
 //komentarz do 14: Lepszy będzie wybór StackList - brak ograniczenia na rozmiar stosu
 
@@ -22,12 +24,12 @@ public class StackFIFO extends Stack {
 	
 	@Override
 	public int pop() {
-		while (!isEmpty())
+		while (isEmpty()!=edu.kis.vh.stacks.StackInterface.EMPTY_CODE)
 			temp.pushElement(super.pop());
 		
 		int result = temp.pop();
 		
-		while (!temp.empty())	
+		while (temp.empty()!=edu.kis.vh.stacks.StackInterface.EMPTY_CODE)	
 			push(temp.pop());
 		
 		return result;

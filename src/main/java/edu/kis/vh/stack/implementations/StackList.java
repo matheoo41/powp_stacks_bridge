@@ -25,8 +25,9 @@ public class StackList implements StackInterface {
 
 
 	@Override
-	public boolean empty() {
-		return last == null;
+	public int empty() {
+		if( last == null){return EMPTY_CODE;}
+		else return NOT_EMPTY_CODE;
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class StackList implements StackInterface {
 
 	@Override
 	public int peek() {
-		if (empty())
+		if (empty()==EMPTY_CODE)
 			return EMPTY_CODE;
 		return last.getValue();
 	}
@@ -45,7 +46,7 @@ public class StackList implements StackInterface {
 
 	@Override
 	public int pop() {
-		if (empty())
+		if (empty()==EMPTY_CODE)
 			return EMPTY_CODE;
 		int result = last.getValue();
 		last = last.getPrev();

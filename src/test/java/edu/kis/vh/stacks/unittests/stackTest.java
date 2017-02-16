@@ -20,13 +20,13 @@ public class StackTest {
 	@Test
 	public void testIsEmpty() {
 		Stack stackObj = new Stack();
-		boolean result = stackObj.isEmpty();		
-		Assert.assertEquals(true, result);
+		int result = stackObj.isEmpty();		
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.EMPTY_CODE, result);
 		
 		stackObj.push(888);
 		
 		result = stackObj.isEmpty();
-		Assert.assertEquals(false, result);
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.NOT_EMPTY_CODE, result);
 	}
 
 	@Test

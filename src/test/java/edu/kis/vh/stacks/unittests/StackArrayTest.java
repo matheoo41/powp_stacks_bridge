@@ -19,13 +19,13 @@ public class StackArrayTest {
 	@Test
 	public void testIsEmpty() {
 		StackArray stackObj = new StackArray();
-		boolean result = stackObj.empty();		
-		Assert.assertEquals(true, result);
+		int result = stackObj.empty();		
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.EMPTY_CODE, result);
 		
 		stackObj.pushElement(888);
 		
 		result = stackObj.empty();
-		Assert.assertEquals(false, result);
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.NOT_EMPTY_CODE, result);
 	}
 
 	@Test

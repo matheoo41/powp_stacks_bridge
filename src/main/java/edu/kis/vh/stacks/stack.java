@@ -1,6 +1,8 @@
 package edu.kis.vh.stacks;
 
 import edu.kis.vh.stack.implementations.StackArray;
+import edu.kis.vh.stacks.StackInterface;
+
 
 //komentarz do punktu 13: Deklaracje metod znajdują się w interfejsie. Istnieją dwie klasy implementujące ten interfejs StackArray, StackList
 
@@ -8,6 +10,7 @@ import edu.kis.vh.stack.implementations.StackArray;
  * @author Mateusz Śmiałkowski
  * Podstawowa implementacja stosu
  */
+
 public class Stack {
 
 	private final StackInterface stackImpl;
@@ -26,7 +29,7 @@ public class Stack {
 		stackImpl.pushElement(value);
 	}
 
-	public boolean isEmpty() {
+	public int isEmpty() {
 		return stackImpl.empty();
 	}
 

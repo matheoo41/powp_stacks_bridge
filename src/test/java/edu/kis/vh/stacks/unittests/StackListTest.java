@@ -21,13 +21,13 @@ public class StackListTest {
 	@Test
 	public void testIsEmpty() {
 		StackInterface stackListObj = new StackList();
-		boolean result = stackListObj.empty();		
-		Assert.assertEquals(true, result);
+		int result = stackListObj.empty();		
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.EMPTY_CODE, result);
 		
 		stackListObj.pushElement(888);
 		
 		result = stackListObj.empty();
-		Assert.assertEquals(false, result);
+		Assert.assertEquals(edu.kis.vh.stacks.StackInterface.NOT_EMPTY_CODE, result);
 	}
 
 	@Test
