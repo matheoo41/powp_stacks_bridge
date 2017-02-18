@@ -4,7 +4,7 @@ package edu.kis.vh.stacks;
 
 public interface StackInterface {
 
-	static final int EMPTY_CODE = -1;
+	static final int EMPTY_CODE = -200;
 	
 	void pushElement(int value);
 

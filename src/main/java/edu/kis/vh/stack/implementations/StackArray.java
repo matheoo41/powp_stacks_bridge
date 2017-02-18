@@ -4,9 +4,10 @@ import edu.kis.vh.stacks.StackInterface;
 
 public class StackArray implements StackInterface{
 	
-	private static final int INIT_SIZE = 12;	
+	private static final int INIT_SIZE = 12;
+	private static final int INIT_TOTAL = 0;
 	private final int[] items = new int[INIT_SIZE];
-	private int total = 0;
+	private int total = INIT_TOTAL;
 
 	@Override
 	public int total() {
